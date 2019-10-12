@@ -1,161 +1,162 @@
 @font-face {
-    font-family: 'yekan';
-    src: url('../fonts/BYekan.woff') format('woff'),
-        url('../fonts/BYekan.ttf') format('truetype'),
-        url('../fonts/BYekan.svg') format('svg'),
-        url('../fonts/BYekan.eot') format('embedded-opentype')
+  font-family: "yekan";
+  src: url("../fonts/BYekan.woff") format("woff"), url("../fonts/BYekan.ttf") format("truetype"),
+    url("../fonts/BYekan.svg") format("svg"), url("../fonts/BYekan.eot") format("embedded-opentype");
 }
-
 ::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888;
+  background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
 
 .yekan {
-    font-family: yekan !important;
-    font-size: 12pt;
-    font-weight: 800;
+  font-family: yekan !important;
+  font-size: 12pt;
+  font-weight: 800;
 }
 
 .yekan-small {
-    font-family: yekan !important;
-    font-size: 10pt;
-    font-weight: 700;
+  font-family: yekan !important;
+  font-size: 10pt;
+  font-weight: 700;
 }
 
 .yekan-xsmall {
-    font-family: yekan !important;
-    font-size: 9pt;
-    font-weight: 600;
+  font-family: yekan !important;
+  font-size: 9pt;
+  font-weight: 600;
 }
 
 .yekan-xxsmall {
-    font-family: yekan !important;
-    font-size: 8pt;
-    font-weight: 500;
+  font-family: yekan !important;
+  font-size: 8pt;
+  font-weight: 500;
 }
 
 .ltr {
-    direction: ltr !important;
+  direction: ltr !important;
 }
 
 .rtl {
-    direction: rtl !important;
+  direction: rtl !important;
 }
 
 .loading-md {
-    width: 25px;
-    height: 25px;
-    display: none;
+  width: 25px;
+  height: 25px;
+  display: none;
 }
 
 .loading-sm {
-    width: 15px;
-    height: 15px;
-    display: none;
+  width: 15px;
+  height: 15px;
+  display: none;
 }
 
 .search {
-    position: relative;
-    border-radius: 8px;
-    border: 1px solid #dfe1e5;
-    box-shadow: none;
-    border-radius: 24px;
-    z-index: 3;
-    min-height: 44px;
-    margin: 0 auto;
-    width: 482px;
-    padding: 5px 35px 5px 10px;
-    outline: none;
-    background-image: url(../images/Search_Dark.png);
-    background-repeat: no-repeat;
-    background-position: right 15px top 13px;
-    background-size: 15px;
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid #dfe1e5;
+  box-shadow: none;
+  border-radius: 24px;
+  z-index: 3;
+  min-height: 44px;
+  margin: 0 auto;
+  width: 482px;
+  padding: 5px 35px 5px 10px;
+  outline: none;
+  background-image: url(../images/Search_Dark.png);
+  background-repeat: no-repeat;
+  background-position: right 15px top 13px;
+  background-size: 15px;
 }
 
 body {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .search-shadow {
-    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-    border-color: rgba(223, 225, 229, 0);
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+  border-color: rgba(223, 225, 229, 0);
 }
 
 .search input {
-    outline: none;
-    width: 100%;
-    border: none;
-    height: 34px;
+  outline: none;
+  width: 100%;
+  border: none;
+  height: 34px;
 }
 
 .search img {
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    left: 10px;
-    top: 9px;
-    display: none;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 10px;
+  top: 9px;
+  display: none;
 }
 
 .header label,
 .footer span {
-    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.85)
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.85);
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    padding: 15px;
-    width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 15px;
+  width: 100%;
 }
 
 .search-result {
-    padding: 0px 16px 16px 16px;
-    direction: rtl;
-    overflow: auto;
-    min-height: 530px;
-    width: 90%;
-    margin: auto;
+  padding: 0px 16px 16px 16px;
+  direction: rtl;
+  overflow: auto;
+  min-height: 530px;
+  width: 90%;
+  margin: auto;
 }
 
 .search-result .card {
-    width: 210px;
-    display: inline-block;
-    margin: 10px 10px 0px 10px;
+  width: 210px;
+  display: inline-block;
+  margin: 10px 10px 0px 10px;
 }
 
 embed {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .card a {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .rounded-top-0 {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .rounded-bottom-0 {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 ul.nav {
-    direction: rtl;
+  direction: rtl;
+}
+
+.nav-item {
+  cursor: pointer;
 }

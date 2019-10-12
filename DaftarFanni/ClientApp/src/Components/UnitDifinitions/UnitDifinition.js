@@ -1,38 +1,36 @@
 import React, { Component } from 'react';
 import Wrapper from '../../Shared/Wrapper';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Machine from './Machines';
+import Part from './Parts';
 
 export default class Units extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            tab: true
+        }
     }
 
     render() {
         return (
             <Wrapper>
-                <Router>
-                    <ul className="nav nav-tabs yekan" role="tablist">
+                <div className="container">
+                    <ul className="nav nav-tabs yekan mt-1" role="tablist">
                         <li className="nav-item">
-                            <a className="nav-link active" data-toggle="tab" >
-                                <Link to="/machines">ماشین آلات</Link>
+                            <a className="nav-link active" data-toggle="tab" onClick={() => this.setState({ tab: true })}>
+                                ماشین آلات
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" data-toggle="tab">
-                                <Link to="/parts">بخش ها</Link>
+                            <a className="nav-link" data-toggle="tab" onClick={() => this.setState({ tab: false })}>
+                                بخش ها
                             </a>
                         </li>
                     </ul>
-                    <Switch>
-                        <Route exact path="/machines">
-                            machines
-                        </Route>
-                        <Route exact path="/parts">
-                            parts
-                        </Route>
-                    </Switch>
-                </Router>
+                    <div className="card-body border-left border-right border-bottom">
+                        {this.state.tab ? <Machine /> : <Part />}
+                    </div>
+                </div>
             </Wrapper>
         )
     }

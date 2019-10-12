@@ -18,12 +18,12 @@ export default class App extends Component {
                     <div className="bg-primary text-center p-3 yekan">
                         <label className="text-white mb-0 h4" style={{ fontWeight: 800, marginLeft: '160px' }}>دفتر فنی</label>
                         <Link to="/searchdoc">
-                            <button className="btn btn-warning p-1 m-0 yekan float-right ml-3">
+                            <button className="btn btn-warning p-1 m-0 yekan float-right ml-2">
                                 ثبت سند جدید <span className="fa fa-plus green-text align-middle"></span>
                             </button>
                         </Link>
                         <Link to="/">
-                            <button className="btn btn-warning p-1 m-0 yekan float-right">
+                            <button className="btn btn-warning p-1 m-0 yekan float-right ml-2">
                                 جستجوی سند
                             </button>
                         </Link>
