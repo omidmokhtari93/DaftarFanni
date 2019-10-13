@@ -53,16 +53,20 @@ export default class Machine extends Component {
     }
 
     updateMachine = () => {
-        http.get('/api/UpdateMachine', {
-            params: {
-                machineId: this.state.editMachineId,
-                machineName: this.state.editMachineName
-            }
-        }).then(response => {
-            notify(response.data.type, response.data.message);
-            this.getMachineData();
-            this.setState({ editState: false })
-        })
+        if (this.state.editMachineName === '') {
+            notify('danger', 'خطا در مقادیر وارد شده')
+        } else {
+            http.get('/api/UpdateMachine', {
+                params: {
+                    machineId: this.state.editMachineId,
+                    machineName: this.state.editMachineName
+                }
+            }).then(response => {
+                notify(response.data.type, response.data.message);
+                this.getMachineData();
+                this.setState({ editState: false })
+            })
+        }
     }
 
     renderRows = () => {
