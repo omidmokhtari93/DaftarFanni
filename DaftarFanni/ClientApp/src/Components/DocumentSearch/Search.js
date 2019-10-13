@@ -41,7 +41,7 @@ export default class Search extends Component {
                 onMouseLeave={(e) => this.SetAndRemoveShadow(e)}>
                 <input className="yekan rtl" placeholder="جستجو ..." ref="searchInput" onChange={(e) => this.props.onChange(e)}
                     onBlur={(e) => this.SetAndRemoveShadow(e)} />
-                <img src={searchLoading} id="loading" />
+                <img src={searchLoading} id="loading" alt="loading"/>
             </div>
         )
     }

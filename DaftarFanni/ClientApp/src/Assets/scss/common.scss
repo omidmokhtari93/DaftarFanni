@@ -3,6 +3,17 @@
   src: url("../fonts/BYekan.woff") format("woff"), url("../fonts/BYekan.ttf") format("truetype"),
     url("../fonts/BYekan.svg") format("svg"), url("../fonts/BYekan.eot") format("embedded-opentype");
 }
+
+body {
+  overflow: hidden;
+  font-family: yekan;
+}
+
+.form-control,
+.btn {
+  font-weight: 600;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -63,6 +74,10 @@
   display: none;
 }
 
+.cursor {
+  cursor: pointer;
+}
+
 .search {
   position: relative;
   border-radius: 8px;
@@ -79,31 +94,27 @@
   background-repeat: no-repeat;
   background-position: right 15px top 13px;
   background-size: 15px;
-}
 
-body {
-  overflow: hidden;
+  input {
+    outline: none;
+    width: 100%;
+    border: none;
+    height: 34px;
+  }
+
+  img {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 10px;
+    top: 9px;
+    display: none;
+  }
 }
 
 .search-shadow {
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
   border-color: rgba(223, 225, 229, 0);
-}
-
-.search input {
-  outline: none;
-  width: 100%;
-  border: none;
-  height: 34px;
-}
-
-.search img {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  left: 10px;
-  top: 9px;
-  display: none;
 }
 
 .header label,
@@ -126,12 +137,12 @@ body {
   min-height: 530px;
   width: 90%;
   margin: auto;
-}
 
-.search-result .card {
-  width: 210px;
-  display: inline-block;
-  margin: 10px 10px 0px 10px;
+  .card {
+    width: 210px;
+    display: inline-block;
+    margin: 10px 10px 0px 10px;
+  }
 }
 
 embed {
@@ -159,4 +170,28 @@ ul.nav {
 
 .nav-item {
   cursor: pointer;
+}
+
+table {
+  direction: rt;
+
+  tr th {
+    text-align: center;
+  }
+
+  tr td {
+    text-align: center;
+  }
+}
+
+.notification-message {
+  font-family: yekan !important;
+  word-wrap: unset;
+}
+
+.notification-item .notification-content {
+  min-width: 12rem !important;
+  direction: rtl;
+  text-align: right;
+  font-weight: 600;
 }

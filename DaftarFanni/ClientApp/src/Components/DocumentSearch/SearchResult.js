@@ -16,9 +16,9 @@ const SearchResult = (props) => {
                         دانلود
                     </button>
                     <div className="dropdown-menu">
-                        <a className="dropdown-item" href="#"> فایل 1</a>
-                        <a className="dropdown-item" href="#"> فایل 2</a>
-                        <a className="dropdown-item" href="#"> فایل 3</a>
+                        <a className="dropdown-item" > فایل 1</a>
+                        <a className="dropdown-item" > فایل 2</a>
+                        <a className="dropdown-item" > فایل 3</a>
                     </div>
                 </div>
             </div>
