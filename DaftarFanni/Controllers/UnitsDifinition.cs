@@ -53,10 +53,41 @@ namespace DaftarFanni.Controllers
         public JsonResult UpdateMachine(int machineId, string machineName)
         {
             con.Open();
-            var cmd = new SqlCommand("update Machines set MachineName = N'" + machineName + "' where Id = " + machineId + " ", con);
+            var cmd = new SqlCommand("update Machines set " +
+                                     "MachineName = N'" + machineName + "', " +
+                                     "Modified = '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' " +
+                                     "where Id = " + machineId + " ", con);
             cmd.ExecuteNonQuery();
             con.Close();
             return new JsonResult(new { type = "success", message = "با موفقیت ویرایش شد" });
+        }
+
+        [HttpGet("/api/GetParts")]
+        public JsonResult GetParts(int id)
+        {
+            return new JsonResult(id + " az inja");
+            con.Open();
+            var list = new List<object>();
+            var cmd = new SqlCommand("SELECT [Id],[PartName] " +
+                                     "FROM [dbo].[Parts] where MachineId = " + id + "", con);
+            var rd = cmd.ExecuteReader();
+            while (rd.Read())
+            {
+                list.Add(new { partName = rd["PartName"], partId = rd["Id"] });
+            }
+            con.Close();
+            return new JsonResult(list);
+        }
+
+        [HttpGet("/api/SavePart")]
+        public JsonResult SavePart(string partName, int machineId)
+        {
+            con.Open();
+            var cmd = new SqlCommand("INSERT INTO [dbo].[Parts]([Created],[Modified],[PartName],[MachineId]) " +
+                "VALUES('" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' ," +
+                " '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' , N'" + partName + "' , " + machineId + ")", con);
+            cmd.ExecuteNonQuery();
+            return new JsonResult(new { type = "success", message = "با موفقیت ثبت شد" });
         }
     }
 }

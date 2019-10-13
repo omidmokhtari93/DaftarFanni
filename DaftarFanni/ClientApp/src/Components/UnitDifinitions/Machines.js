@@ -4,6 +4,7 @@ import ReactNotification from 'react-notifications-component'
 import notify from '../../Shared/Notification';
 import http from 'axios';
 import Loading from 'react-loading-bar'
+import { thisExpression } from '@babel/types';
 
 export default class Machine extends Component {
     constructor(props) {
@@ -14,7 +15,8 @@ export default class Machine extends Component {
             showLoading: false,
             editState: false,
             editMachineId: null,
-            editMachineName: ''
+            editMachineName: '',
+            highlighted: null
         }
     }
 
@@ -24,7 +26,6 @@ export default class Machine extends Component {
 
     getMachineData() {
         http.get('/api/GetMachines').then(response => {
-            console.log(response.data)
             this.setState({ machines: response.data })
         })
     }
@@ -43,8 +44,14 @@ export default class Machine extends Component {
     }
 
     editMachine = (id, name, element) => {
-        console.log(element.target.setAttribute(
-            "style", "background-color: lightgreen;"))
+        if (this.state.highlighted === null) {
+            this.setState({ highlighted: element.target });
+            element.target.style.backgroundColor = 'lightgreen';
+        } else {
+            this.state.highlighted.style.backgroundColor = '';
+            this.setState({ highlighted: element.target });
+            element.target.style.backgroundColor = 'lightgreen';
+        }
         this.setState({
             editState: true,
             editMachineName: name,
@@ -64,6 +71,7 @@ export default class Machine extends Component {
             }).then(response => {
                 notify(response.data.type, response.data.message);
                 this.getMachineData();
+                this.state.highlighted.style.backgroundColor = '';
                 this.setState({ editState: false })
             })
         }
@@ -73,7 +81,8 @@ export default class Machine extends Component {
         return this.state.machines.map((machine, index) => <tr key={index}>
             <th>{index + 1}</th>
             <td>{machine.machineName}</td>
-            <td style={{ width: '10%' }} className="text-primary cursor" onClick={(e) => this.editMachine(machine.id, machine.machineName, e)}>ویرایش</td>
+            <td style={{ width: '10%' }} className="text-primary cursor"
+                onClick={(e) => this.editMachine(machine.id, machine.machineName, e)}>ویرایش</td>
         </tr>)
     }
 
